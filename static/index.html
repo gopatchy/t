@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+    <head>
+        <style>
+:not(:defined) {
+    visibility: hidden;
+}
+
+body {
+    font: 12px var(--sl-font-mono);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            media="(prefers-color-scheme:light)"
+            href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.18.0/cdn/themes/light.css"
+        />
+        <link
+            rel="stylesheet"
+            media="(prefers-color-scheme:dark)"
+            href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.18.0/cdn/themes/dark.css"
+            onload="document.documentElement.classList.add('sl-theme-dark');"
+        />
+        <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.18.0/cdn/shoelace-autoloader.js"></script>
+    </head>
+    <body>
+        tasks!
+    </body>
+</html>
