@@ -37,6 +37,7 @@ func NewTasks(db *sql.DB) (*Tasks, error) {
 	}
 
 	t.mux.HandleFunc("GET /{$}", t.serveRoot)
+	t.mux.Handle("GET /", http.FileServer(http.Dir("static")))
 
 	return t, nil
 }
@@ -92,7 +93,7 @@ func (t *Tasks) initRequest(w http.ResponseWriter, r *http.Request) error {
 		}
 	}
 
-	log.Printf("%s %s %s %s %s %#v", r.RemoteAddr, r.Method, r.Host, r.URL, r.Form)
+	log.Printf("%s %s %s %s %s", r.RemoteAddr, r.Method, r.Host, r.URL, r.Form)
 
 	return nil
 }
