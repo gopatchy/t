@@ -31,15 +31,6 @@ sl-input sl-icon {
     cursor: pointer;
 }
 
-.preHighlight {
-    transition: color 0.3s ease-out;
-}
-
-.highlight {
-    color: var(--sl-color-primary-600);
-    transition: color 0.1s ease-in;
-}
-
 body {
     font: 12px var(--sl-font-mono);
     display: flex;

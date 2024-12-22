@@ -19,3 +19,19 @@ export class Highlighter {
         this.timer.start();
     }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const sheet = new CSSStyleSheet();
+    sheet.replaceSync(`
+.preHighlight {
+    transition: color 0.3s ease-out;
+}
+
+.highlight {
+    color: var(--sl-color-primary-600);
+    transition: color 0.1s ease-in;
+}
+`);
+
+    document.adoptedStyleSheets = [...document.adoptedStyleSheets, sheet];
+});
