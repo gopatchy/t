@@ -1,4 +1,5 @@
 import { ElemWrapper } from "./elemwrapper";
+import { SLIcon } from "./slicon";
 import { SLTabGroup } from "./sltabgroup";
 
 async function main() {
@@ -8,22 +9,10 @@ async function main() {
     root.append(tabGroup);
 
     const [tasksTab, tasksPanel] = tabGroup.addTabSet("tasks");
-    
-    tasksTab
-        .add(
-            "sl-icon",
-            "name", "slash-circle",
-            "style", "font-size: 20px",
-        );
+    tasksTab.append(new SLIcon("slash-circle"));
 
     const [tagsTab, tagsPanel] = tabGroup.addTabSet("tags");
-    
-    tagsTab
-        .add(
-            "sl-icon",
-            "name", "tags",
-            "style", "font-size: 20px",
-        );
+    tagsTab.append(new SLIcon("tags"));
 }
 
 document.addEventListener("DOMContentLoaded", main);

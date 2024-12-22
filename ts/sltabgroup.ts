@@ -8,13 +8,13 @@ export class SLTabGroup extends ElemWrapper {
 
     addTab(panel: string): SLTab {
         const tab = new SLTab(panel);
-        this.appendAfterLastChild("sl-tab", tab);
+        this.append(tab);
         return tab;
     }
 
     addTabPanel(name: string): SLTabPanel {
         const tabPanel = new SLTabPanel(name);
-        this.appendAfterLastChild("sl-tab-panel", tabPanel);
+        this.append(tabPanel);
         return tabPanel;
     }
 

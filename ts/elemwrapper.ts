@@ -9,6 +9,8 @@ export class ElemWrapper {
     public cloneNode: (deep?: boolean | undefined) => Node;
     public contains: (node: Node) => boolean;
     public querySelectorAll: (selectors: string) => NodeListOf<Element>;
+    public querySelector: (selectors: string) => Element | null;
+
     constructor(elem: HTMLElement) {
         this.elem = elem;
         this.appendChild = this.elem.appendChild.bind(this.elem);
@@ -20,6 +22,7 @@ export class ElemWrapper {
         this.cloneNode = this.elem.cloneNode.bind(this.elem);
         this.contains = this.elem.contains.bind(this.elem);
         this.querySelectorAll = this.elem.querySelectorAll.bind(this.elem);
+        this.querySelector = this.elem.querySelector.bind(this.elem);
     }
 
     static create(tagName: string) {
@@ -28,17 +31,6 @@ export class ElemWrapper {
     
     append(elem: ElemWrapper) {
         this.appendChild(elem.elem);
-    }
-
-    appendAfterLastChild(tagName: string, elem: ElemWrapper) {
-        const children = this.querySelectorAll(tagName);
-          
-        if (children.length > 0) {
-            const lastChild = children[children.length - 1];
-            lastChild.after(elem.elem);
-        } else {
-            this.appendChild(elem.elem);
-        }
     }
 
     add(name: string, ...attrs: string[]): ElemWrapper {
