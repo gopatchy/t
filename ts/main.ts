@@ -1,4 +1,5 @@
 import { ElemWrapper } from "./elemwrapper";
+import { Highlighter } from "./highlighter";
 import { SLCard } from "./slcard";
 import { SLIcon } from "./slicon";
 import { SLInput } from "./slinput";
@@ -19,8 +20,9 @@ async function main() {
     const tasksInput = new SLInput();
     tasksCard.append(tasksInput);
     tasksInput.setPill();
-    
+
     const tasksAddIcon = tasksInput.addSuffixIcon("plus-circle");
+    const highlighter = new Highlighter(tasksAddIcon);
 
     const addTask = () => {
         const task = tasksInput.getValue();
@@ -31,9 +33,7 @@ async function main() {
         tasksInput.clear();
         tasksInput.focus();
 
-        tasksAddIcon.classList.remove("highlight");
-        void tasksAddIcon.elem.offsetWidth; // force reflow
-        tasksAddIcon.classList.add("highlight");
+        highlighter.highlight();
     };
 
     tasksAddIcon.addEventListener("click", () => {

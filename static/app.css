@@ -31,21 +31,13 @@ sl-input sl-icon {
     cursor: pointer;
 }
 
-.highlight {
-    animation: colorFade 1.5s ease forwards;
+.preHighlight {
+    transition: color 0.3s ease-out;
 }
 
-@keyframes colorFade {
-    0% {
-    }
-    5% {
-        color: var(--sl-color-primary-600);
-    }
-    60% {
-        color: var(--sl-color-primary-600);
-    }
-    100% {
-    }
+.highlight {
+    color: var(--sl-color-primary-600);
+    transition: color 0.1s ease-in;
 }
 
 body {
