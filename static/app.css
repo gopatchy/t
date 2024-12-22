@@ -1,0 +1,56 @@
+:not(:defined) {
+    visibility: hidden;
+}
+
+:host,
+.sl-theme-dark {
+    --sl-color-primary-50: rgb(254 247 254);
+    --sl-color-primary-100: rgb(252 229 252);
+    --sl-color-primary-200: rgb(250 209 250);
+    --sl-color-primary-300: rgb(247 187 248);
+    --sl-color-primary-400: rgb(244 154 245);
+    --sl-color-primary-500: rgb(239 107 240);
+    --sl-color-primary-600: rgb(226 36 228);
+    --sl-color-primary-700: rgb(186 30 188);
+    --sl-color-primary-800: rgb(155 25 156);
+    --sl-color-primary-900: rgb(111 18 112);
+    --sl-color-primary-950: rgb(70 11 71);
+
+    --sl-input-focus-ring-color: transparent;
+}
+
+sl-tab sl-icon {
+    font-size: 20px;
+}
+
+sl-input:focus {
+    outline: none;
+}
+
+sl-input sl-icon {
+    cursor: pointer;
+}
+
+.highlight {
+    animation: colorFade 1.5s ease forwards;
+}
+
+@keyframes colorFade {
+    0% {
+    }
+    5% {
+        color: var(--sl-color-primary-600);
+    }
+    60% {
+        color: var(--sl-color-primary-600);
+    }
+    100% {
+    }
+}
+
+body {
+    font: 12px var(--sl-font-mono);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

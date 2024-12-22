@@ -1,9 +1,10 @@
-import { ElemWrapper } from "./elemwrapper";
+import { SLElem } from "./slelem";
 import { SLTab } from "./sltab";
 import { SLTabPanel } from "./sltabpanel";
-export class SLTabGroup extends ElemWrapper {
+
+export class SLTabGroup extends SLElem {
     constructor() {
-        super(document.createElement("sl-tab-group"));
+        super("sl-tab-group");
     }
 
     addTab(panel: string): SLTab {

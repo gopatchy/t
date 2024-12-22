@@ -1,8 +1,8 @@
-import { ElemWrapper } from "./elemwrapper";
+import { SLElem } from "./slelem";
 
-export class SLTab extends ElemWrapper {
+export class SLTab extends SLElem {
     constructor(panel: string) {
-        super(document.createElement("sl-tab"));
+        super("sl-tab");
         this.setAttribute("panel", panel);
         this.setAttribute("slot", "nav");
     }

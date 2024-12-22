@@ -1,8 +1,8 @@
-import { ElemWrapper } from "./elemwrapper";
+import { SLElem } from "./slelem";
 
-export class SLIcon extends ElemWrapper {
+export class SLIcon extends SLElem {
     constructor(name: string) {
-        super(document.createElement("sl-icon"));
+        super("sl-icon");
         this.setAttribute("name", name);
     }
 }
