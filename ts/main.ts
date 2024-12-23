@@ -1,4 +1,4 @@
-import { addStyle, addStyleNow } from "./document";
+import { addStyleNow, awaitLoaded } from "./document";
 import { ElemWrapper } from "./elemwrapper";
 import { Highlighter } from "./highlighter";
 import { SLCard } from "./slcard";
@@ -67,4 +67,5 @@ addStyleNow(`
 }
 `);
 
-document.addEventListener("DOMContentLoaded", main);
+await awaitLoaded();
+await main();

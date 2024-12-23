@@ -1,3 +1,5 @@
+import { waitForAnimationFrame } from "./event";
+
 export class ElemWrapper {
     public elem: HTMLElement;
 
@@ -50,5 +52,11 @@ export class ElemWrapper {
 
     setID(id: string) {
         this.elem.id = id;
+    }
+
+    async waitForShadowQuerySelector(selector: string) {
+        while (this.elem.shadowRoot?.querySelector(selector) === undefined) {
+            await waitForAnimationFrame();
+        }
     }
 }
