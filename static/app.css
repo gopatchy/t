@@ -1,7 +1,3 @@
-:not(:defined) {
-    visibility: hidden;
-}
-
 :host,
 .sl-theme-dark {
     --sl-color-primary-50: rgb(254 247 254);
@@ -17,23 +13,4 @@
     --sl-color-primary-950: rgb(70 11 71);
 
     --sl-input-focus-ring-color: transparent;
-}
-
-sl-tab sl-icon {
-    font-size: 20px;
-}
-
-sl-input:focus {
-    outline: none;
-}
-
-sl-input sl-icon {
-    cursor: pointer;
-}
-
-body {
-    font: 12px var(--sl-font-mono);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }

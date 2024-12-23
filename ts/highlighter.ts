@@ -1,3 +1,4 @@
+import { addStyle } from "./document";
 import { ElemWrapper } from "./elemwrapper";
 import { SingleTimer } from "./singletimer";
 
@@ -20,9 +21,7 @@ export class Highlighter {
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const sheet = new CSSStyleSheet();
-    sheet.replaceSync(`
+addStyle(`
 .preHighlight {
     transition: color 0.3s ease-out;
 }
@@ -32,6 +31,3 @@ document.addEventListener("DOMContentLoaded", () => {
     transition: color 0.1s ease-in;
 }
 `);
-
-    document.adoptedStyleSheets = [...document.adoptedStyleSheets, sheet];
-});

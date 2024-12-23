@@ -1,3 +1,4 @@
+import { addStyle, addStyleNow } from "./document";
 import { ElemWrapper } from "./elemwrapper";
 import { Highlighter } from "./highlighter";
 import { SLCard } from "./slcard";
@@ -6,13 +7,26 @@ import { SLInput } from "./slinput";
 import { SLTabGroup } from "./sltabgroup";
 
 async function main() {
+    addStyle(`
+.no-outline:focus {
+    outline: none;
+}
+`);
+
     const root = new ElemWrapper(document.body);
+    root.style.fontSize = "12px";
+    root.style.fontFamily = "var(--sl-font-mono)";
+    root.style.display = "flex";
+    root.style.flexDirection = "column";
+    root.style.alignItems = "center";
 
     const tabGroup = new SLTabGroup();
     root.append(tabGroup);
 
     const [tasksTab, tasksPanel] = tabGroup.addTabSet("tasks");
-    tasksTab.append(new SLIcon("list-task"));
+    const tasksIcon = new SLIcon("list-task");
+    tasksIcon.style.fontSize = "20px";
+    tasksTab.append(tasksIcon);
 
     const tasksCard = new SLCard();
     tasksPanel.append(tasksCard);
@@ -23,6 +37,7 @@ async function main() {
 
     const tasksAddIcon = tasksInput.addSuffixIcon("plus-circle");
     const highlighter = new Highlighter(tasksAddIcon);
+    tasksAddIcon.style.cursor = "pointer";
 
     const addTask = () => {
         const task = tasksInput.getValue();
@@ -47,7 +62,15 @@ async function main() {
     });
 
     const [tagsTab, tagsPanel] = tabGroup.addTabSet("tags");
-    tagsTab.append(new SLIcon("tags"));
+    const tagsIcon = new SLIcon("tags");
+    tagsIcon.style.fontSize = "20px";
+    tagsTab.append(tagsIcon);
 }
+
+addStyleNow(`
+:not(:defined) {
+    visibility: hidden;
+}
+`);
 
 document.addEventListener("DOMContentLoaded", main);
