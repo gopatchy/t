@@ -7,12 +7,6 @@ import { SLInput } from "./slinput";
 import { SLTabGroup } from "./sltabgroup";
 
 async function main() {
-    addStyle(`
-.no-outline:focus {
-    outline: none;
-}
-`);
-
     const root = new ElemWrapper(document.body);
     root.style.fontSize = "12px";
     root.style.fontFamily = "var(--sl-font-mono)";
